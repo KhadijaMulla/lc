@@ -3,21 +3,13 @@ import java.util.*;
 
 class Solution {
     public int removeDuplicates(int[] nums) {
-        HashSet<Integer> set = new HashSet<>();
-
-        for (int num : nums) {
-            set.add(num);
-        }
-
-        int k = 0;
-
-        for (int num : set) {
-            nums[k] = num;
+       int k=1;
+       for(int i=1;i<nums.length;i++){
+        if(nums[i]!=nums[i-1]){
+            nums[k]=nums[i];
             k++;
         }
-
-        Arrays.sort(nums, 0, k);
-
-        return k;
+       }
+return k;
     }
 }
