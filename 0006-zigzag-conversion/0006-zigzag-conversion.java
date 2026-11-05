@@ -1,5 +1,6 @@
 class Solution {
     public String convert(String s, int numRows) {
+
         if (numRows == 1 || numRows >= s.length()) {
             return s;
         }
@@ -10,30 +11,29 @@ class Solution {
             rows[i] = new StringBuilder();
         }
 
-        int row = 0;
+        int currentRow = 0;
         int direction = 1;
 
         for (int i = 0; i < s.length(); i++) {
-            rows[row].append(s.charAt(i));
 
-            if (row == 0) {
+            rows[currentRow].append(s.charAt(i));
+
+            if (currentRow == 0) {
                 direction = 1;
-            } else if (row == numRows - 1) {
+            } 
+            else if (currentRow == numRows - 1) {
                 direction = -1;
             }
 
-            row = row + direction;
+            currentRow += direction;
         }
 
-        StringBuilder ans = new StringBuilder();
+        StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < numRows; i++) {
-            ans.append(rows[i]);
+            result.append(rows[i]);
         }
 
-        return ans.toString();
+        return result.toString();
     }
 }
-
-
-
