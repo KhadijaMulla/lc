@@ -8,6 +8,7 @@ class Solution {
             i++;
         }
         j++;
+
        }
        return i==s.length();
 
